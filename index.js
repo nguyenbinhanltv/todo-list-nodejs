@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 const TodoTask = require("./models/TodoTask");
 
 dotenv.config();
+const PORT = process.env.PORT;
 mongoose.set("useFindAndModify", false);
 const app = express();
 
@@ -72,5 +73,5 @@ mongoose.connect(process.env.DB_CONNECT, {
   useUnifiedTopology: true
 }, () => {
   console.log("Connected to db!");
-  app.listen(3000, () => console.log("Server Up and running"));
+  app.listen(PORT, () => console.log("Server Up and running " + PORT));
 });
